@@ -1,0 +1,87 @@
+_base_: 'default.yml'
+data:
+  precompute_pad_mask: true
+  pad_word: '<PAD>'
+  # Thomas said it should be at least about 5-10x your batch size; beyond that,
+  # the differences become academic.
+  seed: ${train.seed}
+  train:
+    root_dir: [
+                '/misc/lmbraid21/sharmaa/coco_stuff164k/images/train2017',
+              ]
+    meta_file: [
+                '/misc/student/sharmaa/groupvit/GroupViT/coco_train_allinstances.json',
+              ]
+    use_dali: True
+    input_size: 224
+    test_resize: 448
+    image_reader:
+        type: pil
+    sampler:
+        type: distributed_epoch
+    transforms:
+        type: STANDARD
+    fseek: True
+    use_ranked: False
+  
+  val:
+      - imagenet
+  img_aug:
+    deit_aug: true
+    img_size:  224
+    img_scale: [0.08, 1.0]
+    interpolation: bilinear
+    color_jitter: 0.4
+    auto_augment: 'rand-m9-mstd0.5-inc1'
+    re_prob: 0.25
+    re_mode: 'pixel'
+    re_count: 1
+  
+  text_aug:
+    max_seq_len: 77
+    multi_label: 0
+    template_set: 'simple'
+    #word type could be noun, noun phrase or both
+    word_type: 'noun_phrase'
+    pre_generated_nouns: false
+    #if not set then true
+    generate_prompt: true
+    select_nouns: 
+    #generate prompt would trump generate_prompt_for_np. Only if generate_prompt 
+    #is true generate_prompt_for_np would be considered
+    generate_prompt_for_np: true
+    #if not set then true
+    with_caption: true
+    #if not set then always true
+    max_length_fixed: true
+    use_pad_token: true
+
+model:
+  type: MultiLabelContrastiveEntropy
+  ### This disable parallelization of the model
+  debugging: False
+  use_group_token_entropy_loss: False
+  use_label_entropy_loss: False
+  use_tiered_entropy_loss: False
+  use_pad_token: True
+
+  img_encoder:
+    type: GroupViT
+    img_size:  224
+    embed_dim: 384
+    num_heads: [6, 6, 6]
+    depths: [6, 3, 3]
+    num_group_tokens: [64, 8, 0]
+    num_output_groups: [64, 8]
+    drop_rate: 0.0
+    drop_path_rate: 0.1
+  text_encoder:
+    type: TextTransformer
+    context_length: 77
+    width: 256
+    layers: 12
+    vocab_size: 49408
+  contrast_temperature: 0.07
+  proj_num_layers: 2
+  output_dim: 256
+  multi_label: ${data.text_aug.multi_label}

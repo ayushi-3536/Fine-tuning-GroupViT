@@ -1,0 +1,17 @@
+#key to value mapping
+modified:
+  layers.1.blocks.0: layers.0.blocks.6
+  layers.1.blocks.1: layers.0.blocks.7
+  layers.1.blocks.2: layers.0.blocks.8
+  layers.2.blocks.0: layers.1.blocks.0
+  layers.2.blocks.1: layers.1.blocks.1
+  layers.2.blocks.2: layers.1.blocks.2
+  layers.1.downsample: layers.0.downsample
+  layers.1.group_token: layers.0.group_token
+  #can't be loaded due to shape mismatch 
+  layers.1.group_projector: layers.0.group_projector
+# addas:
+#   layers.0.downsample: layers.1.downsample
+#   layers.0.group_token: layers.1.group_token
+#   #can't be loaded due to shape mismatch 
+#   layers.0.group_projector: layers.1.group_projector

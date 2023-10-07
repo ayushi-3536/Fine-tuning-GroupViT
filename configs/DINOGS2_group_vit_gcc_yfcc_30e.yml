@@ -1,0 +1,41 @@
+_base_: 'default.yml'
+data:
+  precompute_pad_mask: false
+  pad_word: '<PAD>'
+
+checkpoint:
+  key_mapper: '/misc/student/sharmaa/groupvit/GroupViT/configs/key_mapper_dino.yml' 
+
+
+model:
+  type: MultiLabelContrastiveEntropy
+  ### This disable parallelization of the model
+  debugging: False
+  use_group_token_entropy_loss: False
+  use_label_entropy_loss: False
+  use_tiered_entropy_loss: False
+  use_pad_token: False
+
+  img_encoder:
+    type: DINOGS2_GroupViT
+    img_size:  224
+    patch_size: 16
+    embed_dim: 384
+    num_heads: [6, 6]
+    depths: [0, 3]
+    num_group_tokens: [8, 0]
+    num_output_groups: [8]
+    drop_rate: 0.0
+    drop_path_rate: 0.1
+  text_encoder:
+    type: TextTransformer
+    context_length: 77
+    width: 256
+    layers: 12
+    vocab_size: 49408
+  contrast_temperature: 0.07
+  proj_num_layers: 2
+  output_dim: 256
+  multi_label: ${data.text_aug.multi_label}
+
+wandb: true

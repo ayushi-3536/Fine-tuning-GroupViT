@@ -1,1 +1,1 @@
-# Fine-tuning-GroupViT
+# Fine-tuning GroupViT

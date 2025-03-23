@@ -1,4 +1,7 @@
 # Fine-tuning GroupViT
+Master Thesis Work
+
+### Abstract
 In the evolving realm of deep learning for scene understanding, the traditional
 dichotomy between grouping and recognition has blurred, thanks to integrated end-
 to-end training systems. Yet, GroupViT reshapes this landscape by reintroducing
@@ -23,5 +26,16 @@ These systematic refinements furnish a framework to further train the pretrained
 model of GroupViT on smaller and cleaner datasets for segmentation, while upholding
 the performance across datasets.
 
+### Results:
+![image](https://github.com/user-attachments/assets/289e2555-0322-40bd-b9d9-9a780154d952)
+
+### Qualitative Analysis
+![image](https://github.com/user-attachments/assets/da616fdb-6f3f-4ee2-8a48-045ceb23d6eb)
+
+![image](https://github.com/user-attachments/assets/7c659e78-ffd2-4d73-a3ff-3658d347d440)
+
 
 ![image](https://github.com/user-attachments/assets/5b55b38d-88a2-4754-9cda-94b45e68e517)
+
+### Full Thesis: 
+

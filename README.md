@@ -43,7 +43,8 @@ Our results show that incorporating non-noisy contrastive loss and group entropy
 
 ### Qualitative Analysis:
 Visualization of segmentation outputs of the vanilla fine-tuning vs fine-tuning with proposed method on Pascal VOC.
-![image](https://github.com/user-attachments/assets/87fc17c4-1b0c-47e3-9de0-04275397f683)
+![image](https://github.com/user-attachments/assets/21815e6b-69b9-41ab-b86f-43f64709b3b5)
+
 
 
 ### Full Thesis: 

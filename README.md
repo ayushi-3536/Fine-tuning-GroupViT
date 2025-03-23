@@ -26,7 +26,6 @@ These systematic refinements furnish a framework to further train the pretrained
 model of GroupViT on smaller and cleaner datasets for segmentation, while upholding
 the performance across datasets.
 
-This repository implements **vanilla fine-tuning** with an improved extraction of text tokens from image captions. The model architecture is based on **GroupViT**, which utilizes multiple tokens to encode information from distinct image segments.
 
 ### Method
 - **Fine-Tuning:** Standard vanilla fine-tuning approach with refined text token extraction.
@@ -37,21 +36,14 @@ This repository implements **vanilla fine-tuning** with an improved extraction o
 - **High-Resolution Training:** All models are trained at **384×384 resolution**.
 
 
-### Results:
-Here, Fine-tuning is vanilla fine-tuning with
-refined extraction of text tokens from image captions. GE denotes Group Entropy Regularization baseline, GroupVit model architecture has multiple tokens to contain information of segments emerging from images.Reducing entropy helps the model to assign image pixels to the segment it is most confident about.
-Non-noisy CL + GE denotes model trained with noise-free contrastive
-loss and Group Entropy Regularization. Here noise-free contrastive loss indication matching with multiple positive image representing same entity in the batch. All the models are trained on
-the resolution of 384.
+### Results: 
+Our results show that incorporating non-noisy contrastive loss and group entropy regularization while fine-tuning GroupViT on MSCOCO helps in improving performance while performing consistently on other datasets in zero-shot.
+
 ![image](https://github.com/user-attachments/assets/289e2555-0322-40bd-b9d9-9a780154d952)
 
 ### Qualitative Analysis
 ![image](https://github.com/user-attachments/assets/da616fdb-6f3f-4ee2-8a48-045ceb23d6eb)
 
-![image](https://github.com/user-attachments/assets/7c659e78-ffd2-4d73-a3ff-3658d347d440)
-
-
-![image](https://github.com/user-attachments/assets/5b55b38d-88a2-4754-9cda-94b45e68e517)
 
 ### Full Thesis: 
 

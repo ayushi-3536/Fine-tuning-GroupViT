@@ -1,5 +1,5 @@
-# Fine-tuning GroupViT
-Master Thesis Work
+# Fine-tuning Vision Language Models for Downstream Tasks
+Master Thesis Work at the Computer Vision Group under Prof. Thomas Brox, University of Freiburg
 
 ### Abstract
 In the evolving realm of deep learning for scene understanding, the traditional

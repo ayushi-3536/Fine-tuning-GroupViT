@@ -47,7 +47,7 @@ Visualization of segmentation outputs of the vanilla fine-tuning vs fine-tuning 
 
 
 
-### Full Thesis: 
+### Full Thesis: [PDF](MasterThesis_AyushiSharma.pdf)
 
 ## Acknowledgments
 - [GroupViT: Semantic Segmentation Emerges from Text Supervision](https://arxiv.org/abs/2202.11094)
